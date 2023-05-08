@@ -1,0 +1,37 @@
+{
+  "name": "fetch-with-json",
+  "description": "Some tweaks to the Fetch API to make it easier to communicate with the server using JSON.",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "types": "es/index.d.ts",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "build": "npm run build:es && npm run build:lib",
+    "build:es": "tsc --outDir es --module esnext --target es2020",
+    "build:lib": "tsc --outDir lib",
+    "format": "prettier --write .",
+    "dev": "tsc --outDir es --module esnext --watch --pretty false --preserveWatchOutput true"
+  },
+  "keywords": [
+    "fetch",
+    "json",
+    "xhr",
+    "ajax",
+    "http",
+    "request"
+  ],
+  "author": "JOHN YUAN",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/john-yuan/fetch-with-json"
+  },
+  "devDependencies": {
+    "prettier": "2.8.8",
+    "typescript": "^5.0.4"
+  }
+}

@@ -136,7 +136,7 @@ function request<T = any>(options: FetchOptions): Promise<FetchResponse<T>>
 The above one will always convert the [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) to [FetchResponse](#fetchresponse). If you want to get the original [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response), you can use the second declaration:
 
 ```ts
-function request(options: FetchOptions, awResponse: true): Promise<Response>
+function request(options: FetchOptions, rawResponse: true): Promise<Response>
 ```
 
 Put them together, below is the declaration of `FetchMethod`:

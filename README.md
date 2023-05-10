@@ -52,6 +52,8 @@ request({
 })
 ```
 
+The type of `res` is [FetchResponse](#fetchresponse) and the `json` field of `res` is the parsed JSON object.
+
 ### 2. Using query
 
 ```ts

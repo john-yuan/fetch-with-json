@@ -1,7 +1,7 @@
 {
   "name": "fetch-with-json",
   "description": "Some tweaks to the Fetch API to make it easier to communicate with the server using JSON.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "types": "es/index.d.ts",
   "module": "es/index.js",

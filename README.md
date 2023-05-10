@@ -130,6 +130,10 @@ request({
 })
 ```
 
+Please note that we are using the `body` field to upload the [FormData][form_data] instead of using the `json` field. The `body` field is declared in [the parameters of the Fetch API][fetch_params]. When `body` is set (not `null` or `undefined`), the `json` field will be ignored.
+
+[form_data]: https://developer.mozilla.org/en-US/docs/Web/API/FormData
+
 ### 5. Getting the original Response
 
 If you want to get the original [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) returned by the [Fetch API][fetch_api], please set the second parameter to `true`, below is an example.

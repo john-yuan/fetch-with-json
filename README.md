@@ -14,7 +14,7 @@ This library does the following for you:
 - Set the request header `Content-Type` to `application/json` and `Accept` to `application/json, */*` if they are not set.
 - Always try to parse response body as JSON no matter what the response header `Content-Type` is and assign the parsed result to `response.json`. If error has be thrown during parsing, `response.json` will be set to the text of the original response body, and the error will be assigned to `response.error`.
 
-**This library is a zero dependency module and will always be.** This library only extends the [fetch options][fetch_params], not overrides it. So you can use the functionality provided by the original [Fetch API][fetch_api]. For example, you can use this library to [upload files](#4-uploading-a-file) just like you would with [Fetch API][fetch_api].
+**This library is a zero dependency module and will always be.** This library only extends the [fetch options][fetch_params], not overrides it. So you can use the functionality provided by the original [Fetch API][fetch_api]. For example, you can use this library to [upload files](#4-uploading-a-file) just like you would with [Fetch API][fetch_api]. And [you can get the original Response if you want](#5-getting-the-original-response).
 
 [fetch_api]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 [fetch_params]: https://developer.mozilla.org/en-US/docs/Web/API/fetch#parameters
@@ -32,13 +32,7 @@ npm i fetch-with-json
 ```ts
 import request from 'fetch-with-json'
 
-type Post = {
-  id: number
-  title: string
-  content: string
-}
-
-request<Post>({
+request({
   method: 'POST',
   url: '/posts',
   json: {
@@ -46,7 +40,6 @@ request<Post>({
     content: 'The Fetch API provides an interface for fetching resources.'
   }
 }).then((res) => {
-  // the type of res.json is Post
   console.log(`post created, id = ${res.json.id}`)
 })
 ```
@@ -127,7 +120,20 @@ request({
 })
 ```
 
-## Declarations
+### 5. Getting the original Response
+
+If you want to get the original [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) returned by the [Fetch API][fetch_api], please set the second parameter to `true`, below is an example.
+
+```ts
+import request from 'fetch-with-json'
+
+request({ url: '/posts/1' }, true).then((res) => {
+  // The type of res is Response
+  console.log(res)
+})
+```
+
+## Typescript Declarations
 
 ### FetchMethod
 

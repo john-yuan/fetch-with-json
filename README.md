@@ -19,6 +19,14 @@ This library does the following for you:
 [fetch_api]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 [fetch_params]: https://developer.mozilla.org/en-US/docs/Web/API/fetch#parameters
 
+Examples:
+
+- [1. Posting JSON data](#1-posting-json-data)
+- [2. Using query](#2-using-query)
+- [3. Creating your own request with default options](#3-creating-your-own-request-with-default-options)
+- [4. Uploading a file](#4-uploading-a-file)
+- [5. Getting the original Response](#5-getting-the-original-response)
+
 ## Installation
 
 ```bash

@@ -1,7 +1,7 @@
 {
   "name": "fetch-with-json",
   "description": "Some tweaks to the Fetch API to make it easier to communicate with the server using JSON.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "lib/index.js",
   "types": "es/index.d.ts",
   "module": "es/index.js",
@@ -13,8 +13,9 @@
     "build": "npm run build:es && npm run build:lib",
     "build:es": "tsc --outDir es --module esnext --target es2020",
     "build:lib": "tsc --outDir lib",
+    "dev": "tsc --outDir es --module esnext --watch --pretty false --preserveWatchOutput true",
     "format": "prettier --write .",
-    "dev": "tsc --outDir es --module esnext --watch --pretty false --preserveWatchOutput true"
+    "release": "npm run build && npm publish --registry=https://registry.npmjs.org/"
   },
   "keywords": [
     "fetch",

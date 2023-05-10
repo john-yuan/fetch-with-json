@@ -1,5 +1,9 @@
 # Fetch with JSON
 
+[![npm version](https://img.shields.io/npm/v/fetch-with-json.svg)](https://www.npmjs.com/package/fetch-with-json)
+[![install size](https://packagephobia.now.sh/badge?p=fetch-with-json)](https://packagephobia.now.sh/result?p=fetch-with-json)
+[![npm downloads](https://img.shields.io/npm/dm/fetch-with-json.svg)](http://npm-stat.com/charts.html?package=fetch-with-json)
+
 Some tweaks to the [Fetch API][fetch_api] to make it easier to communicate with the server using JSON.
 
 Using this library, you don't need to manually set the request header "Content-Type" to "application/json" every time you send JSON to the server.
@@ -69,7 +73,7 @@ The `query` object will be encoded to query string with a [default](#the-default
 
 ```ts
 import qs from 'qs'
-import doFetch, { FetchOptions } from 'fetch-with-json'
+import fetchWithJSON, { FetchOptions } from 'fetch-with-json'
 
 // Encode query with `qs` module
 function encodeQuery(query: Record<string, any>) {
@@ -91,7 +95,7 @@ export default async function request(options: FetchOptions) {
     options.headers.set('X-My-Custom-Header', 'header-value')
   }
 
-  return doFetch(options)
+  return fetchWithJSON(options)
 }
 
 // GET https://example.com/v2/posts

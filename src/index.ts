@@ -179,7 +179,10 @@ function buildResponse<T = any>(response: Response) {
   })
 }
 
-function fetchWithJSON<T = any>(options: FetchOptions, rawResponse?: boolean) {
+function fetchWithJSONImpl<T = any>(
+  options: FetchOptions,
+  rawResponse?: boolean
+) {
   const { baseURL, json, query, encodeQuery } = options
   const req = omit<RequestInit>(options, [
     'url',
@@ -218,6 +221,6 @@ function fetchWithJSON<T = any>(options: FetchOptions, rawResponse?: boolean) {
   return rawResponse ? fetch(url, req) : fetch(url, req).then(buildResponse<T>)
 }
 
-const doFetch = fetchWithJSON as FetchMethod
+const fetchWithJSON = fetchWithJSONImpl as FetchMethod
 
-export default doFetch
+export default fetchWithJSON

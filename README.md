@@ -10,7 +10,7 @@ Using this library, you don't need to manually set the request header "Content-T
 
 This library does the following for you:
 
-- Stringify the request data (the `json` field in the options) with `JSON.stringify` before sending it to the server as request body. [See the example here](#1-post-json-to-the-server).
+- Stringify the request data (the `json` field in the options) with `JSON.stringify` before sending it to the server as request body. [See the example here](#1-posting-json-data).
 - Set the request header `Content-Type` to `application/json` and `Accept` to `application/json, */*` if they are not set.
 - Always try to parse response body as JSON no matter what the response header `Content-Type` is and assign the parsed result to `response.json`. If error has be thrown during parsing, `response.json` will be set to the text of the original response body, and the error will be assigned to `response.error`.
 

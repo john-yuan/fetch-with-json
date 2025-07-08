@@ -1,8 +1,28 @@
-export interface FetchOptions extends RequestInit {
+export type RequestMethod =
+  | 'get'
+  | 'delete'
+  | 'head'
+  | 'options'
+  | 'post'
+  | 'put'
+  | 'patch'
+  | 'purge'
+  | 'link'
+  | 'unlink'
+
+export interface FetchOptions<M extends string = RequestMethod>
+  extends RequestInit {
   /**
    * The request url.
    */
   url?: string
+
+  /**
+   * The request method. You can override the default request method type by
+   * specifying your request method type.
+   * For example `FetchOptions<MyRequestType>`.
+   */
+  method?: M
 
   /**
    * The data to send to the server. The data will be stringified using
@@ -91,8 +111,13 @@ export interface FetchResponse<T = any> {
 }
 
 export interface FetchMethod {
-  <T = any>(options: FetchOptions): Promise<FetchResponse<T>>
-  <T = any>(options: FetchOptions, rawResponse: true): Promise<Response>
+  <T = any, M extends string = RequestMethod>(
+    options: FetchOptions<M>
+  ): Promise<FetchResponse<T>>
+  <T = any, M extends string = RequestMethod>(
+    options: FetchOptions<M>,
+    rawResponse: true
+  ): Promise<Response>
 }
 
 const hasOwn = Object.prototype.hasOwnProperty
